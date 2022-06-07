@@ -7,6 +7,9 @@ authors = ["Felipe Braga"]
 [tool.poetry.dependencies]
 python = "^3.10"
 Django = "^4.0.5"
+djangorestframework = "^3.13.1"
+Markdown = "^3.3.7"
+django-filter = "^21.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.3.0"
