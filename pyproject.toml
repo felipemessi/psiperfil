@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "psiperfil"
+version = "0.1.0"
+description = ""
+authors = ["Felipe Braga"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^4.0.5"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+pylint = "^2.14.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = 'scripts.server:main'
