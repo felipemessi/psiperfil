@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "core",
     # Third-party apps
     "rest_framework",
+    'drf_api_logger',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Third-party middleware
+    'drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware',
 ]
 
 ROOT_URLCONF = "psiperfil.urls"
@@ -124,3 +127,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# https://github.com/vishalanandl177/DRF-API-Logger
+DRF_API_LOGGER_DATABASE = True  # Default to False

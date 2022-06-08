@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import Permission
 from .models import FormAttention, FormPersonality, FormLearning
 
 
@@ -32,6 +33,12 @@ class FormLearningAdmin(admin.ModelAdmin):
         "questao5")
 
 
+class PermissionAdmin(admin.ModelAdmin):
+    list_display = ('name', 'codename')
+
+
 admin.site.register(FormAttention, FormAttentionAdmin)
 admin.site.register(FormPersonality, FormPersonalityAdmin)
 admin.site.register(FormLearning, FormLearningAdmin)
+
+admin.site.register(Permission, PermissionAdmin)
