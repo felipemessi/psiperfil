@@ -78,8 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "psiperfil.wsgi.application"
 
-print(os.environ.get('DB_PASSWORD'))
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 # docker run --name psiperfil-postgres -e POSTGRES_USER=felipebraga -e POSTGRES_PASSWORD=XYgRC6muzN -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
