@@ -161,6 +161,17 @@ psycopg2 = "*"
 whitenoise = "*"
 
 [[package]]
+name = "django-reset-migrations"
+version = "0.4.0"
+description = "Add one command to reset the migrations of one or more app"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+django = ">=1.7"
+
+[[package]]
 name = "djangorestframework"
 version = "3.13.1"
 description = "Web APIs for Django, made easy."
@@ -454,7 +465,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "a6a5ec60d2d7214c1ffb94f04859b30d14d52a0a12b94f781b814eeebb5bba13"
+content-hash = "229e90c73b650907b57c3e525b50c571aeb212867af3fa4e63b2389605b34d8a"
 
 [metadata.files]
 asgiref = [
@@ -529,6 +540,10 @@ django-filter = [
 django-heroku = [
     {file = "django-heroku-0.3.1.tar.gz", hash = "sha256:6af4bc3ae4a9b55eaad6dbe5164918982d2762661aebc9f83d9fa49f6009514e"},
     {file = "django_heroku-0.3.1-py2.py3-none-any.whl", hash = "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762"},
+]
+django-reset-migrations = [
+    {file = "django-reset-migrations-0.4.0.macosx-10.14-x86_64.tar.gz", hash = "sha256:d14e008a06efd6f5f488121d8be7d60dac0fae2053a9a1b7582bb1194dd31e1a"},
+    {file = "django_reset_migrations-0.4.0-py3-none-any.whl", hash = "sha256:902921c626a7d2c3348330b8afd8336ab46e4137165027817d5c2aeac884274d"},
 ]
 djangorestframework = [
     {file = "djangorestframework-3.13.1-py3-none-any.whl", hash = "sha256:24c4bf58ed7e85d1fe4ba250ab2da926d263cd57d64b03e8dcef0ac683f8b1aa"},

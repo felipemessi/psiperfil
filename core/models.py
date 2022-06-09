@@ -1,8 +1,15 @@
 import json
-from django.contrib.auth.models import User
+from django.conf import settings
+from django.contrib.auth.models import User, AbstractUser
 from django.db import models
-
 from .choices import *
+
+
+user = settings.AUTH_USER_MODEL
+
+class User(AbstractUser):
+    bio = models.TextField(blank=True)
+    
 
 
 class FormAttention(models.Model):
@@ -24,14 +31,16 @@ class FormAttention(models.Model):
     )
 
     def __str__(self):
-        return json.dumps({
-            "user": self.user.username,
-            "questao1": self.questao1,
-            "questao2": self.questao2,
-            "questao3": self.questao3,
-            "questao4": self.questao4,
-            "questao5": self.questao5,
-        })
+        return json.dumps(
+            {
+                "user": self.user.username,
+                "questao1": self.questao1,
+                "questao2": self.questao2,
+                "questao3": self.questao3,
+                "questao4": self.questao4,
+                "questao5": self.questao5,
+            }
+        )
 
 
 class FormPersonality(models.Model):
@@ -47,12 +56,14 @@ class FormPersonality(models.Model):
     )
 
     def __str__(self):
-        return json.dumps({
-            "user": self.user.username,
-            "questao1": self.questao1,
-            "questao2": self.questao2,
-            "questao3": self.questao3,
-        })
+        return json.dumps(
+            {
+                "user": self.user.username,
+                "questao1": self.questao1,
+                "questao2": self.questao2,
+                "questao3": self.questao3,
+            }
+        )
 
 
 class FormLearning(models.Model):
@@ -74,11 +85,13 @@ class FormLearning(models.Model):
     )
 
     def __str__(self):
-        return json.dumps({
-            "user": self.user.username,
-            "questao1": self.questao1,
-            "questao2": self.questao2,
-            "questao3": self.questao3,
-            "questao6": self.questao6,
-            "questao5": self.questao5,
-        })
+        return json.dumps(
+            {
+                "user": self.user.username,
+                "questao1": self.questao1,
+                "questao2": self.questao2,
+                "questao3": self.questao3,
+                "questao6": self.questao6,
+                "questao5": self.questao5,
+            }
+        )

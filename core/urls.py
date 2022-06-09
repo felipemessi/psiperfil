@@ -1,8 +1,16 @@
-from django.contrib import admin
 from django.urls import path
+from .views import *
+from django.urls import path,include
+from rest_framework import routers
 
-from . import views
+
+router = routers.DefaultRouter()
+router.register('user', UserViewSet, basename='User')
+router.register('formattention', FormAttentionViewSet, basename='FormAttention')
+router.register('formpersonality', FormPersonalityViewSet, basename='FormPersonality')
+router.register('formlearning', FormLearningViewSet, basename='FormLearning')
+
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path('', include(router.urls) ),
 ]
