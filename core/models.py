@@ -11,6 +11,14 @@ class User(AbstractUser):
     bio = models.TextField(blank=True)
     
 
+class LGPDPermissions(models.Model):
+    user = models.OneToOneField(user, on_delete=models.CASCADE)
+    name_permission = models.TextField(blank=True)
+    email_permission = models.TextField(blank=True)
+    bio_permission = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 class FormAttention(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -29,6 +37,7 @@ class FormAttention(models.Model):
     questao5 = models.CharField(
         max_length=1, choices=QUESTAO_4_CHOICES, blank=False, null=False
     )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return json.dumps(
@@ -54,6 +63,7 @@ class FormPersonality(models.Model):
     questao3 = models.CharField(
         max_length=1, choices=QUESTAO_5_CHOICES, blank=False, null=False
     )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return json.dumps(
@@ -83,6 +93,7 @@ class FormLearning(models.Model):
     questao5 = models.CharField(
         max_length=1, choices=QUESTAO_6_CHOICES, blank=False, null=False
     )
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return json.dumps(
