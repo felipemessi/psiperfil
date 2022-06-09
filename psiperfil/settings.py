@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-%mvd=)d7jw#v@t&x%$-9998vsm&^i=6wfngtu_(z&b*ykh^dt-"
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -76,14 +78,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "psiperfil.wsgi.application"
 
+print(os.environ.get('DB_PASSWORD'))
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
+# docker run --name psiperfil-postgres -e POSTGRES_USER=felipebraga -e POSTGRES_PASSWORD=XYgRC6muzN -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "psiperfil",
+        "USER": "heroku",
+        "PASSWORD": os.environ.get('DB_PASSWORD'),
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -130,3 +137,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # https://github.com/vishalanandl177/DRF-API-Logger
 DRF_API_LOGGER_DATABASE = True  # Default to False
+
+# http://whitenoise.evans.io/en/stable/
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
+
