@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -80,7 +79,6 @@ WSGI_APPLICATION = "psiperfil.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# docker run --name psiperfil-postgres -e POSTGRES_USER=felipebraga -e POSTGRES_PASSWORD=XYgRC6muzN -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
@@ -137,6 +135,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DRF_API_LOGGER_DATABASE = True  # Default to False
 
 # http://whitenoise.evans.io/en/stable/
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
