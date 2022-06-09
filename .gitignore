@@ -1,6 +1,6 @@
 .venv
 .vscode
-db.sqlite3
+**.sqlite3
 **/__pycache__
 __pycache__
 __pycache__/
