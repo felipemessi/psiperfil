@@ -4,10 +4,10 @@ db.sqlite3
 **/__pycache__
 __pycache__
 __pycache__/
-**/__pycache__/
- *.pyc
-
-
+**/__pycache__
+**.pyc
+scripts/__pycache__
+*.pyc
  # Unit test / coverage reports
 htmlcov/
 .tox/
@@ -24,3 +24,4 @@ __pycache__/
 
 # Env
 .env/
+local_settings.py

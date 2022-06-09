@@ -20,13 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("SECRET_KEY")
 
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,7 +41,7 @@ INSTALLED_APPS = [
     "core",
     # Third-party apps
     "rest_framework",
-    'drf_api_logger',
+    "drf_api_logger",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +54,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # Third-party middleware
-    'drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware',
+    "drf_api_logger.middleware.api_logger_middleware.APILoggerMiddleware",
 ]
 
 ROOT_URLCONF = "psiperfil.urls"
@@ -78,22 +77,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "psiperfil.wsgi.application"
 
-print(os.environ.get('DB_PASSWORD'))
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# docker run --name psiperfil-postgres -e POSTGRES_USER=felipebraga -e POSTGRES_PASSWORD=XYgRC6muzN -p 5432:5432 -v /data:/var/lib/postgresql/data -d postgres
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "psiperfil",
         "USER": "heroku",
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
+        "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": "localhost",
         "PORT": "5432",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -139,11 +134,29 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DRF_API_LOGGER_DATABASE = True  # Default to False
 
 # http://whitenoise.evans.io/en/stable/
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+
+AUTH_USER_MODEL = "core.User"
+
+
+REST_FRAMEWORK = {
+    'USER_DETAILS_SERIALIZER': 'core.serializers.UserSerializer',
+}
+
+
+
+
 
 
 # Configure Django App for Heroku.
 import django_heroku
+
 django_heroku.settings(locals())
 
-
+try:
+    from .local_settings import *
+except ImportError:
+    pass
