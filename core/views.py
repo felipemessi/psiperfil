@@ -1,6 +1,8 @@
-from rest_framework import viewsets
-from .models import FormAttention, FormPersonality, FormLearning
 from django.http import HttpResponseForbidden
+
+from rest_framework import viewsets
+
+from .models import FormAttention, FormLearning, FormPersonality
 from .serializer import *
 
 

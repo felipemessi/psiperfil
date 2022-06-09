@@ -1,17 +1,17 @@
 import json
-from django.conf import settings
-from django.contrib.auth.models import User, AbstractUser
-from django.db import models
-from .choices import *
-from django.dispatch import receiver
-from django.db.models.signals import post_save
 
+from django.conf import settings
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+from .choices import *
 
 user = settings.AUTH_USER_MODEL
 
+
 class User(AbstractUser):
     bio = models.TextField(blank=True)
-    
+
 
 class LGPDPermissions(models.Model):
     id = models.AutoField(primary_key=True)
@@ -24,7 +24,7 @@ class LGPDPermissions(models.Model):
 
 
 class FormAttention(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(user, on_delete=models.CASCADE)
     questao1 = models.CharField(
         max_length=1, choices=QUESTAO_4_CHOICES, blank=False, null=False
     )
@@ -56,7 +56,7 @@ class FormAttention(models.Model):
 
 
 class FormPersonality(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(user, on_delete=models.CASCADE)
     questao1 = models.CharField(
         max_length=1, choices=QUESTAO_5_CHOICES, blank=False, null=False
     )
@@ -80,7 +80,7 @@ class FormPersonality(models.Model):
 
 
 class FormLearning(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(user, on_delete=models.CASCADE)
     questao1 = models.CharField(
         max_length=1, choices=QUESTAO_6_CHOICES, blank=False, null=False
     )
