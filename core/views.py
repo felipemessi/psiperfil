@@ -9,6 +9,11 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
+class LGPDPermissionsViewSet(viewsets.ModelViewSet):
+    queryset = LGPDPermissions.objects.all()
+    serializer_class = LGPDPermissionsSerializer
+
+
 class FormAttentionViewSet(viewsets.ModelViewSet):
     queryset = FormAttention.objects.all()
     serializer_class = FormAttentionSerializer

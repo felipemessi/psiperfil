@@ -3,6 +3,8 @@ from django.conf import settings
 from django.contrib.auth.models import User, AbstractUser
 from django.db import models
 from .choices import *
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 user = settings.AUTH_USER_MODEL
@@ -12,10 +14,11 @@ class User(AbstractUser):
     
 
 class LGPDPermissions(models.Model):
+    id = models.AutoField(primary_key=True)
     user = models.OneToOneField(user, on_delete=models.CASCADE)
-    name_permission = models.TextField(blank=True)
-    email_permission = models.TextField(blank=True)
-    bio_permission = models.TextField(blank=True)
+    name_permission = models.BooleanField(default=True, blank=True)
+    email_permission = models.BooleanField(default=True, blank=True)
+    bio_permission = models.BooleanField(default=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
