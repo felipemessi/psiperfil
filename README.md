@@ -22,6 +22,10 @@ O desafio principal foi adapta-lo às normas da LGPD, implementando um sistema d
 onde o usuário pode fazer o gerenciamento dos dados que ele deseja permitir que sejam guardados pela 
 aplicação.
 
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white">
+</div>
+
 ## :rocket: Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -35,6 +39,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - O usuário deve ser capaz de atualizar seus dados pessoais;
 - O usuário deve ser capaz de gerenciar suas informações pessoais;
 - O usuário deve ser capaz de criar, editar e excluir seu cadastro.
+
+<div align="center">
+  <img src="https://github.com/felipemessi/psiperfil/blob/main/.github/LGPD.jpg">
+</div>
 
 ## 🔖 Como usar
 
@@ -81,6 +89,10 @@ por fim, execute
 ```python
 poetry start
 ```
+
+<div align="center">
+  <img src="https://github.com/felipemessi/psiperfil/blob/main/.github/api_psiperfil.png">
+</div>
 
 
 ## :memo: Licença
