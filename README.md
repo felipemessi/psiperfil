@@ -87,6 +87,7 @@ DATABASES = {
 por fim, execute
 
 ```python
+poetry migrate
 poetry start
 ```
 
