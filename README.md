@@ -22,9 +22,6 @@ O desafio principal foi adapta-lo às normas da LGPD, implementando um sistema d
 onde o usuário pode fazer o gerenciamento dos dados que ele deseja permitir que sejam guardados pela 
 aplicação.
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white">
-</div>
 
 ## :rocket: Tecnologias
 
@@ -56,10 +53,10 @@ poetry init
 poetry install
 ```
 
-Depois, crie um arquivo "local_settings.py" dentro da pasta psiperfil e coloque adapte o script a seguir:
+Depois, crie um arquivo "local_settings.py" dentro da pasta psiperfil e crie/adapte o script a seguir:
 
 ```python
-# local_settings.py
+# psiperfil/local_settings.py
 import os
 from pathlib import Path
 
