@@ -35,6 +35,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - O Usuário deve ser capaz de responder os formulários;
 - O usuário deve ser capaz de atualizar seus dados pessoais;
 - O usuário deve ser capaz de gerenciar suas informações pessoais;
+- O usuário deve ser capaz de autorizar compartilhar os seus dados com a aplicação (opt-in);
+- O usuário deve ser capaz de desautorizar compartilhar os seus dados com a aplicação (opt-out);
 - O usuário deve ser capaz de criar, editar e excluir seu cadastro.
 
 <div align="center">
